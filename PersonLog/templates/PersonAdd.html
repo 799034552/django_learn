@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block main_contain %}
+<form action="/PersonAdd" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p><label>姓名<input type="text" name="name"></label></p>
+    <p><label>年龄<input type="text" name="age"></label></p>
+    <p><label>图片<input type="file" name="pic"></label></p>
+    <button type="submit">添加</button>
+</form>
+{% endblock main_contain %}

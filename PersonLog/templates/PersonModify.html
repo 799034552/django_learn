@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block main_contain %}
+人员修改
+<form action="{% url 'PersonLog:PersonModify' person_data.id %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p><label>年龄<input type="text" name="age" value="{{person_data.age}}"></label></p>
+    <p><label>图片<input type="file" name="pic"></label></p>
+    <button type="submit">修改</button>
+</form>
+{% endblock main_contain %}

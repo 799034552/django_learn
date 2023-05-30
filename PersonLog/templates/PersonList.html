@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block main_contain %}
+
+<table>
+    <thead>
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>图片</th>
+            <th>操作</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in PersonList %}
+        <tr>
+            <td>{{item.name}}</td>
+            <td>{{item.age}}</td>
+            <td>
+                {% if item.pic %}
+                <img src="{{MEDIA_PATH}}{{item.pic}}" style="width:40px;height:40px">
+                {% endif %}
+            </td>
+            <td><a href="{% url  'PersonLog:PersonDel' item.pk %}">删除</a></td>
+            <td><a href="{% url  'PersonLog:PersonModify' item.pk %}">修改</a></td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5">无数据</td>
+        </tr>
+        {% endfor %}
+    <tbody>
+</table>
+<p><a href="{% url 'PersonLog:PersonAdd' %}">添加</a></p>
+{% if not username %}
+<p><a href="{% url 'PersonLog:index' %}">登陆</a></p>
+{% endif %}
+{% endblock main_contain %}

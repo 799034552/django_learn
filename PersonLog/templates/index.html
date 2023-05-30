@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block main_contain %}
+<form action="/Login" method="post">
+    {% csrf_token %}
+    <p><label>用户名<input type="text" name="username"></label></p>
+    <p><label>密码<input type="text" name="passwd"></label></p>
+    <p><label>邀请码<input type="text" name="invite_code" value="1234"></label></p>
+    <p><a href="{% url 'PersonLog:PersonList'%}">游客访问</a></p>
+    <button>登录&amp;注册</button>
+</form>
+{% endblock main_contain %}
