@@ -63,6 +63,9 @@ class PersonList(View):
 class PersonAdd(View):
     template_name = "PersonAdd.html"
     def get(self, request: HttpRequest) -> HttpResponse:
+        if (not request.session.get("username")):
+            messages.info(request, "没登陆不允许操作这个")
+            return back(request)
         return render(request, self.template_name)
     
     def post(self, request: HttpRequest) -> HttpResponse:

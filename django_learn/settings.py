@@ -32,7 +32,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 CSRF_TRUSTED_ORIGINS  =  [ 
-    "http://www.for-safe.top:11007/*",
+    "http://django.stringcloud.top/*",
 ]
 
 
